@@ -34,7 +34,7 @@
         },
         {
           Name: "jobName",
-          Value: "DEMO_ANIMALS_1",
+          Value: "DEMO_ANIMALS",
           ActionType: "None"
         }
       ]
@@ -47,12 +47,12 @@
       Steps: [
         {
           Name: "vRowKey",
-          Value: "2",
+          Value: "3",
           ActionType: "None"
         },
         {
           Name: "vOutput",
-          Value: ";ERROR;Could not type animal [Ballena] in search box",
+          Value: ";OK;OK",
           ActionType: "None"
         }
       ]
