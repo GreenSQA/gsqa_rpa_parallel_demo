@@ -34,7 +34,7 @@
         },
         {
           Name: "jobName",
-          Value: "DEMO_ANIMALS",
+          Value: "DEMO_ANIMALS_1",
           ActionType: "None"
         }
       ]
