@@ -12,7 +12,7 @@ schedules:
     always: true
 
 pool:
-  vmImage: 'windows-2022'
+  vmImage: 'windows-latest'
 
 jobs:
 - job: LoadAgentNode1
