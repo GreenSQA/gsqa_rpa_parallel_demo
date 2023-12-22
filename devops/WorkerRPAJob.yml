@@ -21,7 +21,7 @@ steps:
   inputs:
     targetType: 'inline'
     workingDirectory: '$(Build.SourcesDirectory)/aimaps_full'
-    script: | 
-    ./AiMap.Console.exe src="$(Build.SourcesDirectory)/maps/rpa__cluster.aimj" --VarVarsCluster.pipelineId"=$(Build.BuildId)"
+    script: |
+        ./AiMap.Console.exe src="$(Build.SourcesDirectory)/maps/rpa__cluster.aimj" --VarVarsCluster.pipelineId"=$(Build.BuildId)"
   displayName: 'Running bots'
   timeoutInMinutes: 5
