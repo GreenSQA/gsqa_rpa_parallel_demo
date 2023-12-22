@@ -1,0 +1,12 @@
+#RPA
+.tmp/
+har
+pics
+*.db
+log.txt
+*.xlsx
+Test-MapReport.xml
+GreenSQA.AiMaps.GlobalCustomLogic.*
+
+#Browser Mobproxy
+*.log

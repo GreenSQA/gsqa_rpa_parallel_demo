@@ -1,0 +1,24 @@
+# The TIA - Team!
+
+trigger:
+- '*'
+
+schedules:
+  - cron: "0 8 * * *"
+    displayName: Schedule job
+    branches:
+      include:
+      - main
+    always: true
+
+pool:
+  vmImage: 'windows-2022'
+
+jobs:
+- job: LoadAgentNode1
+  displayName: RPA
+  continueOnError: false
+  workspace:
+    clean: all
+  steps:
+    - template: WorkerRPAJob.yml

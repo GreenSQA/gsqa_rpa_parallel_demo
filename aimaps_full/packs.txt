@@ -1,0 +1,2 @@
+Microsoft.WindowsAzure.Storage.dll Microsoft.WindowsAzure.Storage
+Microsoft.WindowsAzure.Storage.dll Microsoft.WindowsAzure.Storage.Blob
