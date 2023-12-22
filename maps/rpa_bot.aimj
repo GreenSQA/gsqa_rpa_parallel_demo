@@ -2,7 +2,7 @@
   Name: "rpa_bot",
   GlobalSourceCode: "\r\nprivate void SetupFuncMonitor()\r\n{\r\n  InitFunc();\r\n  \r\n  //Setup the project plan data\r\n  Func.ProjectInfo.CustomerId   = StepValStr(\"Controller>CustomerId\");\r\n  Func.ProjectInfo.CustomerName = StepValStr(\"Controller>CustomerName\");\r\n  Func.ProjectInfo.ProjectId    = StepValStr(\"Controller>ProjectId\");\r\n  Func.ProjectInfo.ProjectName  = StepValStr(\"Controller>ProjectName\");\r\n  Func.ProjectInfo.IterationId  = StepValStr(\"Controller>IterationId\");\r\n  Func.ProjectInfo.TestCaseId   = \"rpa-animal\" + \"-\" + StringUtility.RandomString(3); \r\n  \r\n  Func.ProjectInfo.ApplicationVersion = StepValStr(\"Controller>ApplicationVersion\");\r\n  Func.ProjectInfo.TechnologyApp      = \"Web\"; //Change this with the proper value\r\n  \r\n  //Setup the project details\r\n  Func.ProjectInfo.GsqaService           = GsqaService.ATM; //TIA;ATM;Services\r\n  Func.ProjectInfo.HumanRelationRate     = StepValDouble(\"Controller>HumanRelationRate\"); \r\n  Func.ProjectInfo.DeploymentEnvironment = DevEnvironment.QA; //DEV;QA;STG;PRD\r\n  Func.ProjectInfo.IsGreenHeartPrdMode   = StepValBool(\"Controller>IsGreenHeartPrdMode\");\r\n  \r\n  //Change to true if you want to abort a failed test when the screenshot fails\r\n  AbortFailedTestWithScreenshotError = false;\r\n  \r\n  ResetStartTime();\r\n}\r\n",
   RobotAuthor: "ss",
-  SeleniumBrowser: "Chrome",
+  SeleniumBrowser: "Chrome Undetected",
   SeleniumScreenHeight: 1024,
   SeleniumScreenWidth: 2049,
   MapDataFilterSqlStatement: "select [animal] as \"VarsRPA>vAnimal\"\r\n  from [data]\r\n  where [id] = @[VarsRPA>vRowKey]\r\n  --[id] =  1",
@@ -24,7 +24,7 @@
           Value: "[VarsRPA.vAnimal] wikipedia",
           ActionType: "SeClear",
           Timeout: 4,
-          CustomErrorMessage: "Could not type animal [[VarsRPA.vAnimal]] in search box",
+          CustomErrorMessage: "Could not type animal in the search box",
           SeByLocator: "Name",
           SeLocatorString: "q"
         },
@@ -89,62 +89,52 @@
         {
           Name: "CustomerId",
           Value: "999",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "CustomerName",
           Value: "GreenSQA",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "ProjectId",
           Value: "999",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "ProjectName",
           Value: "AtmExample",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "IterationId",
           Value: "01",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "TestCaseId",
           Value: "1",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "ApplicationVersion",
           Value: "1.0.0",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "BotName",
           Value: "BOT_EXAMPLE",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "HumanRelationRate",
           Value: "2.5",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         },
         {
           Name: "IsGreenHeartPrdMode",
           Value: "false",
-          ActionType: "None",
-          EvidenceOrder: "Before"
+          ActionType: "None"
         }
       ]
     }
