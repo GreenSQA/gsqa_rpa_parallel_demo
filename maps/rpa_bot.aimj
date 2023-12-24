@@ -23,7 +23,7 @@
           Name: "clicContinueToGoogle",
           ActionType: "SeClick",
           SeByLocator: "XPath",
-          SeLocatorString: "//div[contains(lower-case(text()), 'accept') or contains(lower-case(text()), 'accett') or contains(lower-case(text()), 'acepta')]"
+          SeLocatorString: "//div[contains(text(), 'ccept') or contains(text(), 'ccept') or contains(text(), 'ccett') or contains(text(), 'cepta')]"
         },
         {
           Name: "writeAnimal",
