@@ -2,7 +2,7 @@
   Name: "rpa_bot",
   GlobalSourceCode: "\r\nprivate void SetupFuncMonitor()\r\n{\r\n  InitFunc();\r\n  \r\n  //Setup the project plan data\r\n  Func.ProjectInfo.CustomerId   = StepValStr(\"Controller>CustomerId\");\r\n  Func.ProjectInfo.CustomerName = StepValStr(\"Controller>CustomerName\");\r\n  Func.ProjectInfo.ProjectId    = StepValStr(\"Controller>ProjectId\");\r\n  Func.ProjectInfo.ProjectName  = StepValStr(\"Controller>ProjectName\");\r\n  Func.ProjectInfo.IterationId  = StepValStr(\"Controller>IterationId\");\r\n  Func.ProjectInfo.TestCaseId   = \"rpa-animal\" + \"-\" + StringUtility.RandomString(3); \r\n  \r\n  Func.ProjectInfo.ApplicationVersion = StepValStr(\"Controller>ApplicationVersion\");\r\n  Func.ProjectInfo.TechnologyApp      = \"Web\"; //Change this with the proper value\r\n  \r\n  //Setup the project details\r\n  Func.ProjectInfo.GsqaService           = GsqaService.ATM; //TIA;ATM;Services\r\n  Func.ProjectInfo.HumanRelationRate     = StepValDouble(\"Controller>HumanRelationRate\"); \r\n  Func.ProjectInfo.DeploymentEnvironment = DevEnvironment.QA; //DEV;QA;STG;PRD\r\n  Func.ProjectInfo.IsGreenHeartPrdMode   = StepValBool(\"Controller>IsGreenHeartPrdMode\");\r\n  \r\n  //Change to true if you want to abort a failed test when the screenshot fails\r\n  AbortFailedTestWithScreenshotError = false;\r\n  \r\n  ResetStartTime();\r\n}\r\n",
   RobotAuthor: "ss",
-  SeleniumBrowser: "Chrome (Headless)",
+  SeleniumBrowser: "Chrome Undetected (Headless)",
   SeleniumScreenHeight: 1024,
   SeleniumScreenWidth: 2049,
   MapDataFilterSqlStatement: "select [animal] as \"VarsRPA>vAnimal\"\r\n  from [data]\r\n  where [id] = @[VarsRPA>vRowKey]\r\n  --[id] =  1",
@@ -23,7 +23,7 @@
           Name: "clicContinueToGoogle",
           ActionType: "SeClick",
           SeByLocator: "XPath",
-          SeLocatorString: "//div[text()='Accept all']"
+          SeLocatorString: "//div[contains(text(), 'Accept') or contains(text(), 'Accept') or contains(text(), 'Accett') or contains(text(), 'Acepta')]"
         },
         {
           Name: "writeAnimal",

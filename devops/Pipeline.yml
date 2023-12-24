@@ -16,7 +16,15 @@ pool:
 
 jobs:
 - job: LoadAgentNode1
-  displayName: RPA
+  displayName: RPA1
+  continueOnError: false
+  workspace:
+    clean: all
+  steps:
+    - template: WorkerRPAJob.yml
+
+- job: LoadAgentNode2
+  displayName: RPA2
   continueOnError: false
   workspace:
     clean: all
