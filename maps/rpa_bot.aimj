@@ -31,7 +31,7 @@
           Y: 10,
           ActionType: "SeClick",
           SeByLocator: "XPath",
-          SeLocatorString: "//div[text()='Accepter tout']"
+          SeLocatorString: "//div[text()='Tout accepter']"
         },
         {
           Name: "clicContinueToGoogleGER",
