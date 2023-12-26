@@ -30,3 +30,11 @@ jobs:
     clean: all
   steps:
     - template: WorkerRPAJob.yml
+
+- job: LoadAgentNode3
+  displayName: RPA3
+  continueOnError: false
+  workspace:
+    clean: all
+  steps:
+    - template: WorkerRPAJob.yml
