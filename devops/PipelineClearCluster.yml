@@ -1,8 +1,5 @@
 # The TIA - Team!
 
-trigger:
-  - '*' # Triggers on any change
-
 schedules:
   - cron: "0 7 * * *" # Scheduled to run every day at 7 AM
     displayName: Schedule job
