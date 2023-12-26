@@ -1,7 +1,20 @@
 # The TIA - Team!
-# Setup AiMaps environment with BrowserMobProxy
-steps:
 
+trigger:
+- '*'
+
+schedules:
+  - cron: "0 8 * * *"
+    displayName: Schedule job
+    branches:
+      include:
+      - main
+    always: true
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
 - task: Xther-Deployment@0  
   inputs:
     installDir: '$(Build.SourcesDirectory)/xther/'
@@ -22,6 +35,6 @@ steps:
     targetType: 'inline'
     workingDirectory: '$(Build.SourcesDirectory)/aimaps_full'
     script: |
-        ./AiMap.Console.exe src="$(Build.SourcesDirectory)/maps/rpa__cluster.aiml" --VarVarsCluster.pipelineId="$(Build.BuildId)"
-  displayName: 'Running bots'
-  timeoutInMinutes: 5
+        ./AiMap.Console.exe src="$(Build.SourcesDirectory)/maps/rpa__cluster.aiml" --VarVarsCluster.pipelineId="$(Build.BuildId)" --VarVarsCluster.clusterAction="PROCESS"
+  displayName: 'Cleanning cluster'
+  timeoutInMinutes: 6
