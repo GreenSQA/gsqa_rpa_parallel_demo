@@ -1,20 +1,7 @@
 # The TIA - Team!
-
-trigger:
-- '*'
-
-schedules:
-  - cron: "0 8 * * *"
-    displayName: Schedule job
-    branches:
-      include:
-      - main
-    always: true
-
-pool:
-  vmImage: 'windows-latest'
-
+# Setup AiMaps environment with BrowserMobProxy
 steps:
+
 - task: Xther-Deployment@0  
   inputs:
     installDir: '$(Build.SourcesDirectory)/xther/'
