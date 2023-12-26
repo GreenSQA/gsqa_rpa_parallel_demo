@@ -1,0 +1,47 @@
+# The TIA - Team!
+
+trigger:
+  - '*' # Triggers on any change
+
+schedules:
+  - cron: "0 7 * * *" # Scheduled to run every day at 7 AM
+    displayName: Schedule job
+    branches:
+      include:
+        - main
+    always: true
+
+pool:
+  vmImage: 'windows-latest'
+
+jobs:
+  - job: LoadAgentNode1
+    displayName: ClusterClear
+    continueOnError: false
+    workspace:
+      clean: all
+    steps:
+      - task: Xther-Deployment@0  
+        inputs:
+          installDir: '$(Build.SourcesDirectory)/xther/'
+          resources: 'CHR'
+        displayName: 'XTher install'
+
+      - task: PowerShell@2
+        inputs:    
+          targetType: 'inline'
+          script: |
+            $destinationFolder = "$(Build.SourcesDirectory)/aimaps_full/Selenium/"
+            if (!(Test-Path -path $destinationFolder)) {New-Item $destinationFolder -Type Directory}
+            Copy-Item '$(Build.SourcesDirectory)/xther/*' $destinationFolder -Force -Recurse
+        displayName: 'Setup drivers'
+
+      - task: PowerShell@2
+        inputs:
+          targetType: 'inline'
+          workingDirectory: '$(Build.SourcesDirectory)/aimaps_full'
+          script: |
+            # Run the bots with specific parameters
+            ./AiMap.Console.exe src="$(Build.SourcesDirectory)/maps/rpa__cluster.aiml" --VarVarsCluster.clusterAction="CLEAR"
+        displayName: 'Clearing environment'
+        timeoutInMinutes: 5
