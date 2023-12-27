@@ -23,5 +23,5 @@ steps:
     workingDirectory: '$(Build.SourcesDirectory)/aimaps_full'
     script: |
         ./AiMap.Console.exe src="$(Build.SourcesDirectory)/maps/rpa__cluster.aiml" --VarVarsCluster.pipelineId="$(Build.BuildId)" --VarVarsCluster.clusterAction="PROCESS"
-  displayName: 'Cleanning cluster'
+  displayName: 'Running RPA'
   timeoutInMinutes: 6
